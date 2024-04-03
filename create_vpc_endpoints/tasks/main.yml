@@ -1,0 +1,7 @@
+---
+- name: Create VPC Endpoints
+  amazon.aws.ec2_vpc_endpoint:
+    state: present
+    vpc_id: "{{ create_vpc_result.vpc.id }}"
+    service_name: "com.amazonaws.{{ ansible_ec2_placement_region }}.{{ item }}"
+  with_items: "{{ create_vpc_endpoints_endpoints }}"

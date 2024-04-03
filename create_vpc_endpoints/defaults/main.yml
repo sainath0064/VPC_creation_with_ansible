@@ -1,0 +1,4 @@
+---
+create_vpc_endpoints_endpoints:
+  - s3
+  - dynamodb

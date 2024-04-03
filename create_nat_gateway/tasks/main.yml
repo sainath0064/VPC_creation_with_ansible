@@ -1,0 +1,14 @@
+---
+- name: Create NAT Gateway
+  amazon.aws.ec2_vpc_nat_gateway:
+    subnet_id: "{{ create_subnets_results.results | selectattr('item.name', 'equalto', 'public-subnet-1') | map(attribute='subnet.id') | first }}"
+    state: present
+  register: create_nat_gateway_result
+
+- name: Wait for NAT Gateway to be available
+  ansible.builtin.wait_for:
+    host: "{{ create_nat_gateway_result.nat_gateway.id }}"
+    port: 22
+    state: started
+    delay: 90
+    timeout: 300

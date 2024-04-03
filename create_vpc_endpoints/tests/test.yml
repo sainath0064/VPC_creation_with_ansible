@@ -1,0 +1,6 @@
+---
+- name: Test create VPC endpoints
+  hosts: localhost
+  remote_user: root
+  roles:
+    - create_vpc_endpoints

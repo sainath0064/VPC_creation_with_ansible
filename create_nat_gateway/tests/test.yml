@@ -1,0 +1,6 @@
+---
+- name: Test Nat Gateway creation
+  hosts: localhost
+  remote_user: root
+  roles:
+    - create_nat_gateway

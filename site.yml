@@ -1,0 +1,11 @@
+---
+- name: Provision VPC and Subnets
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: create_vpc
+    - role: create_subnets
+    - role: create_route_tables
+    - role: create_internet_gateway
+    - role: create_nat_gateway
+    - role: create_vpc_endpoints
