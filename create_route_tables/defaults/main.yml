@@ -1,0 +1,3 @@
+---
+create_route_tables_public_route_table_name: "public-route-table"
+create_route_tables_private_route_table_prefix: "private-route-table-"

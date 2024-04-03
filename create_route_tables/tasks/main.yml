@@ -1,0 +1,15 @@
+---
+- name: Create Public Route Table
+  amazon.aws.ec2_vpc_route_table:
+    vpc_id: "{{ create_vpc_result.vpc.id }}"
+    tags:
+      Name: "{{ create_route_tables_public_route_table_name }}"
+  register: create_public_route_table_result
+
+- name: Create Private Route Tables
+  amazon.aws.ec2_vpc_route_table:
+    vpc_id: "{{ create_vpc_result.vpc.id }}"
+    tags:
+      Name: "{{ create_route_tables_private_route_table_prefix }}{{ item.name }}"
+  with_items: "{{ create_subnets_subnets | selectattr('name', 'search', '^private-') }}"
+  register: create_private_route_table_results

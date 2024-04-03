@@ -1,0 +1,6 @@
+---
+- name: Test subnet creation
+  hosts: localhost
+  remote_user: root
+  roles:
+    - create_subnets

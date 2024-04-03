@@ -1,0 +1,14 @@
+---
+create_subnets_subnets:
+  - cidr: "10.0.1.0/24"
+    az: "us-east-2a"
+    name: "public-subnet-1"
+  - cidr: "10.0.2.0/24"
+    az: "us-east-2b"
+    name: "public-subnet-2"
+  - cidr: "10.0.3.0/24"
+    az: "us-east-2a"
+    name: "private-subnet-1"
+  - cidr: "10.0.4.0/24"
+    az: "us-east-2b"
+    name: "private-subnet-2"

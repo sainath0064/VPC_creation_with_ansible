@@ -1,0 +1,13 @@
+---
+- name: Create Internet Gateway
+  amazon.aws.ec2_vpc_igw:
+    vpc_id: "{{ create_vpc_result.vpc.id }}"
+    tags:
+      Name: "{{ create_internet_gateway_igw_name }}"
+  register: create_igw_result
+
+- name: Attach Internet Gateway to VPC
+  amazon.aws.ec2_vpc_igw:
+    vpc_id: "{{ create_vpc_result.vpc.id }}"
+    internet_gateway_id: "{{ create_igw_result.gateway_id }}"
+    state: present

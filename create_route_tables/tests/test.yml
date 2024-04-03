@@ -1,0 +1,6 @@
+---
+- name: Test create route table
+  hosts: localhost
+  remote_user: root
+  roles:
+    - create_route_tables
