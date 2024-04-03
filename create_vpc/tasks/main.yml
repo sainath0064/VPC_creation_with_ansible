@@ -1,0 +1,6 @@
+---
+- name: Create VPC
+  amazon.aws.ec2_vpc_net:
+    name: "{{ create_vpc_name }}"
+    cidr_block: "{{ create_vpc_cidr_block }}"
+  register: create_vpc_result
